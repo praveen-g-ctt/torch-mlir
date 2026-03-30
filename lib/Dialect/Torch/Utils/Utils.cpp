@@ -103,6 +103,8 @@ torch_upstream::ScalarType Torch::getScalarTypeForType(Type type) {
     return torch_upstream::ScalarType::Float8_e5m2fnuz;
   if (isa<Float8E4M3FNUZType>(type))
     return torch_upstream::ScalarType::Float8_e4m3fnuz;
+  if (isa<Float8E8M0FNUType>(type))
+    return torch_upstream::ScalarType::Float8_e8m0fnu;
   std::string errorMsg = "Unhandled type in getScalarTypeForType: ";
   llvm::raw_string_ostream os(errorMsg);
   type.print(os);
@@ -182,6 +184,8 @@ Torch::getTypeForScalarType(MLIRContext *context,
     return Float8E5M2FNUZType::get(context);
   case torch_upstream::ScalarType::Float8_e4m3fnuz:
     return Float8E4M3FNUZType::get(context);
+  case torch_upstream::ScalarType::Float8_e8m0fnu:
+    return Float8E8M0FNUType::get(context);
   case torch_upstream::ScalarType::Undefined:
     return failure();
   default:

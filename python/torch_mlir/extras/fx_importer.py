@@ -170,6 +170,7 @@ OPTIONAL_TORCH_DTYPE_TO_MLIR_TYPE_ASM = {
     "float8_e4m3fn": "f8E4M3FN",
     "float8_e5m2fnuz": "f8E5M2FNUZ",
     "float8_e4m3fnuz": "f8E4M3FNUZ",
+    "float8_e8m0fnu": "f8E8M0FNU",
 }
 for dtype_str, dtype_asm in OPTIONAL_TORCH_DTYPE_TO_MLIR_TYPE_ASM.items():
     if hasattr(torch, dtype_str):
@@ -250,6 +251,7 @@ OPTIONAL_TORCH_DTYPE_TO_INT = {
     "float8_e4m3fn": 24,
     "float8_e5m2fnuz": 25,
     "float8_e4m3fnuz": 26,
+    "float8_e8m0fnu": 44,
 }
 for dtype_str, dtype_int in OPTIONAL_TORCH_DTYPE_TO_INT.items():
     if hasattr(torch, dtype_str):
